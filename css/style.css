@@ -1,0 +1,95 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    background: url("../img/bg-2.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#board {
+    background: linear-gradient(rgb(185, 185, 145), rgb(91, 185, 91));
+    width: 90vmin;
+    height: 92vmin;
+    border: 2px solid black;
+    display: grid;
+    grid-template-rows: repeat(18, 1fr);
+    grid-template-columns: repeat(18, 1fr);
+}
+
+#scorebox {
+    position: absolute;
+    top: 9px;
+    right: 150px;
+    font-size: 39px;
+    font-weight: bold;
+}
+
+.head {
+    background: linear-gradient(red, yellow);
+    border: 2px solid purple;
+    transform: scale(1.02);
+    border-radius: 9px;
+}
+
+.snake {
+    background-color: purple;
+    border: .25vmin solid white;
+    border-radius: 12px;
+}
+
+.food {
+    background: linear-gradient(red, purple);
+    border: .25vmin solid black;
+    border-radius: 8px;
+}
+
+/* Styles for tablets (devices with width between 768px and 1024px) */
+@media (max-width: 1024px) and (min-width: 768px) {
+    #board {
+        width: 80vmin; /* Slightly smaller to fit better on tablets */
+        height: 82vmin;
+    }
+
+    #scorebox {
+        top: 20px;
+        right: 20px;
+        font-size: 30px; /* Smaller font size for tablet */
+    }
+
+    .head, .snake {
+        /* Reduce the scale and border-radius for better fit on smaller screens */
+        transform: scale(1.0);
+        border-radius: 7px;
+    }
+}
+
+/* Styles for mobile devices (width less than 768px) */
+@media (max-width: 768px) {
+    .body {
+        background-size: cover; /* Change background size to cover for better mobile view */
+    }
+
+    #board {
+        width: 95vmin; /* Take up almost full width */
+        height: 97vmin; /* And height to maintain aspect ratio */
+    }
+
+    #scorebox {
+        position: fixed; /* Fix position to top to avoid scrolling issues */
+        top: 10px;
+        right: 5px;
+        font-size: 25px; /* Further reduce font size for small screens */
+    }
+
+    .head, .snake {
+        border-radius: 5px; /* Smaller border-radius for small screens */
+    }
+}
+
